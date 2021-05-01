@@ -22,9 +22,9 @@
                 <items>
                     <ColumnListItem >
                         <cells>
-                            <Label text="{jsonEmployee>OrderID}"/>
-                            <Label text="{jsonEmployee>Freight}"/>
-                            <Label text="{jsonEmployee>ShipAddress}"/>                                                
+                            <Label text="{jsonEmployees>OrderID}"/>
+                            <Label text="{jsonEmployees>Freight}"/>
+                            <Label text="{jsonEmployees>ShipAddress}"/>                                                
                         </cells>
                     </ColumnListItem>
                 </items>
