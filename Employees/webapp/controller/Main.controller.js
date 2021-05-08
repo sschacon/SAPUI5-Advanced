@@ -136,6 +136,7 @@ sap.ui.define([
                     tableIncidence.removeAllContent();
 
                     for (var incidence in data.results) {
+                        data.results[incidence]._ValidateDate = true;
                         var newIncidence = sap.ui.xmlfragment("logaligroup.Employees.fragment.NewIncidence", this._detailEmployeeView.getController());
                         this._detailEmployeeView.addDependent(newIncidence);
                         newIncidence.bindElement("incidenceModel>/" + incidence);
