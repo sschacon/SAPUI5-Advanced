@@ -176,6 +176,27 @@ sap.ui.define([
                     value: this.getView().getModel("incidenceModel").getSecurityToken()
                 });
                 oUploadCollection.addHeaderParameter(oCustomerHeaderToken);
+            },
+
+            onFileUploadComplete: function (oEvent) {
+                oEvent.getSource().getBinding("items").refresh();
+            },
+
+            onFileDeleted: function (oEvent) {
+                var oUploadCollection = oEvent.getSource();
+                var sPath = oEvent.getParameter("item").getBindingContext("incidenceModel").getPath();
+                this.getView().getModel("incidenceModel").remove(sPath, {
+                    success: function () {
+                        oUploadCollection.getBinding("items").refresh();
+                    },
+                    error: function () {
+                    }
+                });
+            },
+
+            downloadFile: function (oEvent) {
+                const sPath = oEvent.getSource().getBindingContext("incidenceModel").getPath();
+                window.open("/sap/opu/odata/sap/YSAPUI5_SRV_01" + sPath + "/$value");
             }
 
         });
